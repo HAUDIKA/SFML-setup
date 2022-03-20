@@ -1,24 +1,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-int main() {
+#include "Simulation.h"
 
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
+int main() 
+{
+	Simulation game(1080, 1000, "Title");
 
-	sf::Event event;
-
-	while (window.isOpen())
+	while (game.is_open())
 	{
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-		}
+		game.update();
+		game.render();
 	}
-
-	std::cout << "Hello Wordl" << std::endl;
 
 	return 0;
 }
